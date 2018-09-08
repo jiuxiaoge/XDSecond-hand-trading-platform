@@ -1,0 +1,68 @@
+<!--index.wxml-->
+<!--顶部导航条-->
+<view class='tablist'>
+  <view wx:for="{{tablist}}" class='item {{current==index? "select" : ""}}' data-pos='{{index}}' bindtap='click'>
+    <text>{{item}}</text>
+  </view>
+</view>
+
+<!--搜索框-->
+<view class='search'>
+  <view class='search-left'>
+    <image src='../../images/search.png'></image>
+    <input placeholder=' 请输入查询内容' placeholder-class='search-placeholder'></input>
+  </view>
+</view>
+
+<!--下面的可滑动部分-->
+<scroll-view>
+  <swiper indicator-dots='true' autoplay='ture' interval='3000' duration='500' circular='true' bindchange='bindChange'>
+  <block wx:for="{{imgUrls}}">
+    <swiper-item>
+      <image src='{{item}}'></image>
+    </swiper-item>
+  </block>
+  </swiper>
+
+  <!--近期热门-->
+  <view class='search1'>
+    <view class='search1-left'>
+      <image src='../../images/remen.png'></image>
+      <text class='search-placeholder1'>近期热门</text>
+    </view>
+  </view>
+  <swiper autoplay='ture' interval='5000' duration='500' circular='true'      bindchange='bindChange' vertical='true' class='anotherSwiper'>
+    <block wx:for="{{rementuijian}}">
+      <swiper-item>
+        <view>
+          <image class="slide-image" src='{{item.pic}}'></image>
+          <text>{{item.tcontent}}{{item.tcontent1}}</text>
+        </view>
+      </swiper-item>
+    </block>
+  </swiper>
+
+  <!--下导航-->
+  <view class='tablist1'>
+    <view wx:for="{{tablist1}}" class='item {{current1==index? "select" : ""}}' data-pos1='{{index}}' bindtap='click1'>
+    <text>{{item}}</text>
+    </view>
+  </view>
+
+  <!--售卖信息-->
+  <block wx:for="{{sell}}" class="sell">
+    <view class='sell-item'>
+      <view class='sell-source'>
+          <view class='avatar'>
+            <image src='{{item.src}}'></image>
+          </view>
+          <text>{{item.name}} {{item.sellmessage}}</text>
+          <image src='../../images/more.png'></image>
+      </view>
+      <view class='sell-current'>
+        <image class='slide-image' src='{{item.pic}}'></image>
+        <text>{{item.current}}</text>
+      </view>
+    </view>
+  </block>
+</scroll-view>

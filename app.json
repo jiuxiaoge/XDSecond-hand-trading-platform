@@ -1,0 +1,12 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#1d699c",
+    "navigationBarTitleText": "西电二手交易平台",
+    "navigationBarTextStyle":"white"
+  }
+}
